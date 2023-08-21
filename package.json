@@ -1,0 +1,21 @@
+{
+  "name": "project-portfolio-3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx parcel src/index.html --open",
+    "build": "npx parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.3",
+    "parcel-bundler": "^1.8.1",
+    "sass": "^1.66.1"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2"
+  }
+}

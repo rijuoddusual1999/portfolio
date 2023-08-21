@@ -1,0 +1,43 @@
+*{
+    margin: 0 ;
+    box-sizing:border-box;
+    &:before,
+    &:after{
+        box-sizing: border-box;
+
+    }
+}
+
+
+:root{
+    --clr-neon:hsl(275, 100%, 86%);
+    --clr-bg: hsl(275, 95%, 22%);
+}
+
+html,body{
+    overflow-x: hidden;
+}
+
+
+
+$grey_color: rgb(48, 53, 52);
+$green_color: rgb(79, 243, 122);
+$red_color: rgb(236, 73, 48);
+
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+    
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Handjet:wght@300&family=Indie+Flower&family=Lobster&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&display=swap');
+
+
+
