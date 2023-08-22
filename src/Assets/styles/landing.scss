@@ -3,7 +3,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgb(3, 5, 3); /* Background color */
+    background: rgb(0, 0, 0); /* Background color */
     color: white;
     overflow: hidden;
 
@@ -31,7 +31,7 @@
     position: absolute;
     opacity: 0;
     top: 0;
-    left: 40%;
+    left: 47%;
     transform: translateX(-50%);
     font-family: 'Handjet', cursive;
     font-size: 1rem;
@@ -44,7 +44,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 60vw;
+        width: 80vw;
     }
 
     /* Header Left */
@@ -60,21 +60,22 @@
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    color: --clr-neon; /* Custom variable for neon color */
-    border: hsl(275, 100%, 86%) 0.125em solid;
+    color: hsl(317, 100%, 54%); /* Custom variable for neon color */
+    border: hsl(317, 100%, 54%) 0.125em solid;
     padding: 0.25em 1em;
     border-radius: 0.25em;
 
     /* Text Shadow and Box Shadow */
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em hsl(275, 100%, 86%);
-    box-shadow: inset 0 0 0.5em 0 hsl(275, 100%, 86%),
-                inset 0 0 0.5em 0 hsl(275, 100%, 86%);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em hsl(317, 100%, 54%);
+    box-shadow: inset 0 0 0.5em 0 hsl(317, 100%, 54%),
+                inset 0 0 0.5em 0 hsl(317, 100%, 54%);
 }
 
 .neon:hover {
     /* Background and color changes on hover */
-    background: var(--clr-neon); /* Custom variable for neon color */
+    background: hsl(317, 100%, 54%); /* Custom variable for neon color */
     color: var(--clr-bg); /* Custom variable for background color */
+    text-shadow: none;
 
     /* Remove text-shadow and box-shadow changes here */
 }

@@ -16,6 +16,7 @@
   display: grid;
   place-items: center;
   font-family: 'Handjet', cursive;
+  pointer-events: none;
 
   &__box {
     position: relative;
@@ -43,7 +44,7 @@
 
   &_text {
     position: relative;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: white;
     animation: glitchEffect 500ms infinite;
