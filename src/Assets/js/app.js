@@ -44,3 +44,25 @@ let barinterval = setInterval(() => {
         });
     }
 }, 22);
+
+
+
+let bg = document.getElementById('svg_box');
+let count_svg = 20;
+for(let i = 0; i < count_svg ; i++){
+    let glitchbox = document.createElement('div');
+        glitchbox.className ='box';
+        bg.appendChild(glitchbox);
+}
+
+
+setInterval(function(){
+let glitch = document.getElementsByClassName('box');
+for(let i = 0; i < glitch.length(); i++ ){
+    glitch[i].style.left = Math.floor(Math.random()*100) +'vw';
+    glitch[i].style.top = Math.floor(Math.random()*100) +'vh';
+    glitch[i].style.width = Math.floor(Math.random()*400) +'px';
+    glitch[i].style.height = Math.floor(Math.random()*100) +'px';
+    glitch[i].style.backgound_position = Math.floor(Math.random()*50) +'px';
+}
+},200)
