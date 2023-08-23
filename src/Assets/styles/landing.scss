@@ -1,4 +1,5 @@
 /* Landing Styles */
+
 .landing {
     position: fixed;
     width: 100%;
@@ -6,13 +7,10 @@
     background: rgb(0, 0, 0); /* Background color */
     color: white;
     overflow: hidden;
+    
 
     /* SVG Box */
-    .svg_box {
-        width: 100%;
-        height: 100%;
-        border: solid 0.4em rgb(255, 255, 255); /* Border around SVG */
-    }
+    
 
     /* SVG Image */
     .svg_box > .loader_svg {
@@ -92,8 +90,17 @@
     background-attachment: fixed;
     background: url('../svg/diane-picchiottino-o9o1ihCnEMQ-unsplash.svg');
     background-attachment: fixed;
+    background-size: cover;
+    
+    
 }
 
+.box{
+    position: absolute;
+    background: url('../svg/ai-generated-7975718_1280.svg');
+    background-attachment: fixed;
+
+}
 
 
 /* Rest of your existing CSS styles */
