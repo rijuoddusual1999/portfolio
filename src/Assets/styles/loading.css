@@ -1,0 +1,76 @@
+@import url("./base.scss");
+.loader {
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  background: rgb(22, 24, 23);
+  display: grid;
+  place-items: center;
+  font-family: "Handjet", cursive;
+  pointer-events: none;
+}
+.loader__box {
+  position: relative;
+  width: 500px;
+  height: 200px;
+}
+@media (max-width: 600px) {
+  .loader__box {
+    width: 90vw;
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
+.loader_bar {
+  width: 90%;
+  height: 20px;
+  position: relative;
+  background: white;
+}
+.loader_bar--inner {
+  height: 100%;
+  width: 0%;
+  background: rgb(79, 243, 122);
+}
+.loader_text {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  animation: glitchEffect 500ms infinite;
+  text-shadow: 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.025em 0.025em 0 rgba(0, 255, 0, 0.75), 0.05em -0.05em 0.05em rgba(0, 0, 255, 0.75);
+}
+@media (max-width: 600px) {
+  .loader_text {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+}
+@keyframes glitchEffect {
+  0%, 20% {
+    text-shadow: 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.025em 0.025em 0 rgba(0, 255, 0, 0.75), 0.05em -0.05em 0.05em rgba(0, 0, 255, 0.75);
+  }
+  25%, 45% {
+    text-shadow: 0.05em -0.05em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.025em 0.025em 0.05em rgba(0, 0, 255, 0.75);
+  }
+  50%, 70% {
+    text-shadow: -0.025em 0.025em 0 rgba(255, 0, 0, 0.75), 0.05em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.025em 0.05em rgba(0, 0, 255, 0.75);
+  }
+  75%, 100% {
+    text-shadow: 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), 0.05em -0.05em 0 rgba(0, 255, 0, 0.75), -0.025em 0.025em 0.05em rgba(0, 0, 255, 0.75);
+  }
+}
+.loader_counter {
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}/*# sourceMappingURL=loading.css.map */

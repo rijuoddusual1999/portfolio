@@ -1,3 +1,26 @@
-body {
-  background-color: aqua;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Handjet:wght@300&family=Indie+Flower&family=Lobster&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-neon:hsl(317, 100%, 54%),;
+  --clr-bg: hsl(275, 84%, 36%);
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
 }/*# sourceMappingURL=base.css.map */

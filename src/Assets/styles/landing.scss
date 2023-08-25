@@ -103,4 +103,47 @@
 }
 
 
+
+
 /* Rest of your existing CSS styles */
+
+.fancy_button {
+    width: 6em;
+    height: 1.9em;
+    border: none;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1rem ;
+    color: rgb(105, 0, 0);
+    background-color: rgb(252, 89, 29);
+    border-radius: 3.75em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0.8em rgba(252, 89, 29, 1), 0 0 1.3em rgba(252, 89, 29, 1);
+    transition: 0.5s;
+    letter-spacing: 0.2em;
+}
+
+.fancy_button:hover {
+    transform: scale(0.9);
+    animation: pulse 0.7s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0.8em rgba(252, 89, 29, 1), 0 0 1.3em rgba(252, 89, 29, 1);
+    }
+    50% {
+        box-shadow: 0 0 0 0.5em rgba(243, 20, 8, 0.545), 0 0 0 1.3em rgba(252, 89, 29, 0.5);
+        filter: blur(0.05em);
+    }
+    100% {
+        box-shadow: 0 0 0.9em rgba(251, 104, 51, 0.8), 0 0 1.8em rgba(252, 89, 29, 1);
+    }
+}
+
+
+
+
