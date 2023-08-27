@@ -5588,12 +5588,12 @@ var barinterval = setInterval(function () {
     });
   }
 }, 22);
-var bg = document.querySelector('.svg_box');
+var paralaxSection = document.querySelector('.paralax');
 var count_svg = 20;
 for (var i = 0; i < count_svg; i++) {
   var glitchbox = document.createElement('div');
   glitchbox.className = 'box';
-  bg.appendChild(glitchbox);
+  paralaxSection.appendChild(glitchbox);
 }
 setInterval(function () {
   var glitch = document.getElementsByClassName('box');
@@ -5630,7 +5630,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57853" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54611" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

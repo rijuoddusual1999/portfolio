@@ -46,13 +46,12 @@ let barinterval = setInterval(() => {
 }, 22);
 
 
-
-let bg = document.querySelector('.svg_box');
+let paralaxSection = document.querySelector('.paralax');
 let count_svg = 20;
 for(let i = 0; i < count_svg ; i++){
     let glitchbox = document.createElement('div');
         glitchbox.className ='box';
-        bg.appendChild(glitchbox);
+        paralaxSection.appendChild(glitchbox);
 }
 
 
