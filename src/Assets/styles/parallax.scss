@@ -1,0 +1,26 @@
+.normal img,
+        .parallax img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .normal {
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 2;
+            
+        }
+
+        .parallax {
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+            
+        }
+
+
+

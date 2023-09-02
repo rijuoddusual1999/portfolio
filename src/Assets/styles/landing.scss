@@ -1,10 +1,10 @@
-/* Landing Styles */
+
 
 .landing {
     position: relative;
     width: 100%;
     height: 100%;
-    background: rgb(0, 0, 0); /* Background color */
+    background: rgb(0, 0, 0); 
     color: white;
     overflow: hidden;
     
@@ -70,12 +70,13 @@
 }
 
 .svg_box{
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     background: url('../images/diane-picchiottino-o9o1ihCnEMQ-unsplash.jpg');
     background-size: cover;
+   
     
     
 }
