@@ -1,0 +1,28 @@
+.header {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 47%;
+    transform: translateX(-50%);
+    font-family: 'Handjet', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    overflow: hidden;
+
+    /* Header Wrap */
+    &_wrap {
+        margin-top: 1rem;
+        padding: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95vw;
+    }
+
+    /* Header Left */
+    &_left {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+    }
+}

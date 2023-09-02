@@ -5,6 +5,7 @@ import gsap from "gsap";
 const bar = document.querySelector(".loader_bar--inner");
 const countnum = document.querySelector(".loader_counter--number-counter");
 const count = document.querySelector(".loader");
+
 let c = 0;
 
 // Set interval to update loading bar and counter
@@ -27,11 +28,6 @@ let barinterval = setInterval(() => {
             duration: 2,
             opacity: 0,
         });
-        gsap.to(".loader_svg", {
-            duration: 3,
-            opacity: 1,
-            scale: 0.8,
-        });
         gsap.to(".loader", {
             duration: 4,
             opacity: 1,
@@ -46,12 +42,12 @@ let barinterval = setInterval(() => {
 }, 22);
 
 
-let paralaxSection = document.querySelector('.paralax');
+let  container = document.querySelector('.container');
 let count_svg = 20;
 for(let i = 0; i < count_svg ; i++){
     let glitchbox = document.createElement('div');
         glitchbox.className ='box';
-        paralaxSection.appendChild(glitchbox);
+        container.appendChild(glitchbox);
 }
 
 

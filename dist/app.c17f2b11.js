@@ -5571,11 +5571,6 @@ var barinterval = setInterval(function () {
       duration: 2,
       opacity: 0
     });
-    _gsap.default.to(".loader_svg", {
-      duration: 3,
-      opacity: 1,
-      scale: 0.8
-    });
     _gsap.default.to(".loader", {
       duration: 4,
       opacity: 1,
@@ -5588,12 +5583,12 @@ var barinterval = setInterval(function () {
     });
   }
 }, 22);
-var paralaxSection = document.querySelector('.paralax');
+var container = document.querySelector('.container');
 var count_svg = 20;
 for (var i = 0; i < count_svg; i++) {
   var glitchbox = document.createElement('div');
   glitchbox.className = 'box';
-  paralaxSection.appendChild(glitchbox);
+  container.appendChild(glitchbox);
 }
 setInterval(function () {
   var glitch = document.getElementsByClassName('box');
@@ -5630,7 +5625,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54611" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53832" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

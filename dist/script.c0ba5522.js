@@ -180,7 +180,7 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\svg\\diane-picchiottino-o9o1ihCnEMQ-unsplash.svg":[["diane-picchiottino-o9o1ihCnEMQ-unsplash.2687262c.svg","Assets/svg/diane-picchiottino-o9o1ihCnEMQ-unsplash.svg"],"Assets/svg/diane-picchiottino-o9o1ihCnEMQ-unsplash.svg"],"./..\\svg\\ai-generated-7975718_1280.svg":[["ai-generated-7975718_1280.485bf27c.svg","Assets/svg/ai-generated-7975718_1280.svg"],"Assets/svg/ai-generated-7975718_1280.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Assets/js/script.js":[function(require,module,exports) {
+},{"./..\\images\\diane-picchiottino-o9o1ihCnEMQ-unsplash.jpg":[["diane-picchiottino-o9o1ihCnEMQ-unsplash.4b7e7540.jpg","Assets/images/diane-picchiottino-o9o1ihCnEMQ-unsplash.jpg"],"Assets/images/diane-picchiottino-o9o1ihCnEMQ-unsplash.jpg"],"./..\\images\\ai-generated-7975718_1920.png":[["ai-generated-7975718_1920.dfc29a93.png","Assets/images/ai-generated-7975718_1920.png"],"Assets/images/ai-generated-7975718_1920.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Assets/js/script.js":[function(require,module,exports) {
 "use strict";
 
 require("../styles/base.scss");
@@ -211,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54611" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53832" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
