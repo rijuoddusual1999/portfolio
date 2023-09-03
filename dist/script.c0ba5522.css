@@ -148,7 +148,7 @@ ul {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
 }
 .landing .svg_box {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -198,21 +198,6 @@ ul {
 .parallax img {
   max-width: 100%;
   height: auto;
-}
-
-.normal {
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 2;
-}
-
-.parallax {
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 /*# sourceMappingURL=/script.c0ba5522.css.map */

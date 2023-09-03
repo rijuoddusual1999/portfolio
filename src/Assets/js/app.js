@@ -64,3 +64,17 @@ for(let i = 0; i < glitch.length; i++ ){
 }
 },750)
 
+const parallaxElements = document.querySelectorAll('.parallax1');
+
+function handleParallax() {
+    const scrollPosition = window.pageYOffset;
+    parallaxElements.forEach((element) => {
+        const parallaxValue = scrollPosition * -2.7;
+        element.style.transform = `translateY(${parallaxValue}px)`;
+    });
+}
+
+window.addEventListener('scroll', handleParallax);
+handleParallax();
+
+
