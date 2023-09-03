@@ -148,17 +148,63 @@ ul {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
 }
 .landing .svg_box {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url("/diane-picchiottino-o9o1ihCnEMQ-unsplash.4b7e7540.jpg");
+  background: url("/pexels-jonathan-formento-4337198.69d9b1d2.jpg");
   background-size: cover;
 }
-.landing .box {
+.landing .svg_box::before {
+  content: "";
   position: absolute;
-  background: url("/ai-generated-7975718_1920.dfc29a93.png");
-  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/pexels-jonathan-formento-4337198.69d9b1d2.jpg");
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+.landing .svg_box:hover::before {
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    background-position: 5px 0;
+  }
+  20% {
+    background-position: -5px 0;
+  }
+  30% {
+    background-position: 15px 0;
+  }
+  40% {
+    background-position: 5px 0;
+  }
+  50% {
+    background-position: -25px 0;
+  }
+  60% {
+    background-position: -50px 0;
+  }
+  70% {
+    background-position: 0 -20px;
+  }
+  80% {
+    background-position: -60px -20px;
+  }
+  81% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 0;
+    filter: hue-rotate(360deg);
+  }
 }
 .landing .fancy_button {
   width: 6em;
@@ -168,13 +214,13 @@ ul {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 900;
   font-size: 1rem;
-  color: rgb(105, 0, 0);
-  background-color: rgb(252, 89, 29);
+  color: rgb(0, 70, 105);
+  background-color: cyan;
   border-radius: 3.75em;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 0.8em rgb(252, 89, 29), 0 0 1.3em rgb(252, 89, 29);
+  box-shadow: 0 0 0.8em cyan, 0 0 1.3em cyan;
   transition: 0.5s;
   letter-spacing: 0.2em;
 }
@@ -184,20 +230,25 @@ ul {
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0.8em rgb(252, 89, 29), 0 0 1.3em rgb(252, 89, 29);
+    box-shadow: 0 0 0.8em rgb(75, 236, 233), 0 0 1.3em rgb(75, 236, 233);
+    filter: blur(0.1em);
   }
   50% {
-    box-shadow: 0 0 0 0.5em rgba(243, 20, 8, 0.545), 0 0 0 1.3em rgba(252, 89, 29, 0.5);
+    box-shadow: 0 0 0 0.5em rgb(5, 142, 211), 0 0 0 1.3em rgb(5, 142, 211);
     filter: blur(0.05em);
   }
   100% {
-    box-shadow: 0 0 0.9em rgba(251, 104, 51, 0.8), 0 0 1.8em rgb(252, 89, 29);
+    box-shadow: 0 0 0.9em rgb(75, 236, 233), 0 0 1.8em rgb(75, 236, 233);
+    filter: blur(0.02em);
   }
 }
-.normal img,
-.parallax img {
+img {
   max-width: 100%;
   height: auto;
+}
+
+.normal1 {
+  position: relative;
 }
 
 /*# sourceMappingURL=/script.c0ba5522.css.map */

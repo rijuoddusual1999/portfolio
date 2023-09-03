@@ -5583,33 +5583,6 @@ var barinterval = setInterval(function () {
     });
   }
 }, 22);
-var container = document.querySelector('.container');
-var count_svg = 20;
-for (var i = 0; i < count_svg; i++) {
-  var glitchbox = document.createElement('div');
-  glitchbox.className = 'box';
-  container.appendChild(glitchbox);
-}
-setInterval(function () {
-  var glitch = document.getElementsByClassName('box');
-  for (var _i = 0; _i < glitch.length; _i++) {
-    glitch[_i].style.left = Math.floor(Math.random() * 100) + 'vw';
-    glitch[_i].style.top = Math.floor(Math.random() * 100) + 'vh';
-    glitch[_i].style.width = Math.floor(Math.random() * 200) + 'px';
-    glitch[_i].style.height = Math.floor(Math.random() * 100) + 'px';
-    glitch[_i].style.backgroundPosition = Math.floor(Math.random() * 25) + 'px';
-  }
-}, 750);
-var parallaxElements = document.querySelectorAll('.parallax1');
-function handleParallax() {
-  var scrollPosition = window.pageYOffset;
-  parallaxElements.forEach(function (element) {
-    var parallaxValue = scrollPosition * -2.7;
-    element.style.transform = "translateY(".concat(parallaxValue, "px)");
-  });
-}
-window.addEventListener('scroll', handleParallax);
-handleParallax();
 },{"gsap":"../node_modules/gsap/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -5635,7 +5608,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63634" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -42,39 +42,9 @@ let barinterval = setInterval(() => {
 }, 22);
 
 
-let  container = document.querySelector('.container');
-let count_svg = 20;
-for(let i = 0; i < count_svg ; i++){
-    let glitchbox = document.createElement('div');
-        glitchbox.className ='box';
-        container.appendChild(glitchbox);
-}
 
 
-setInterval(function(){
-let glitch = document.getElementsByClassName('box');
-for(let i = 0; i < glitch.length; i++ ){
-    
-    glitch[i].style.left = Math.floor(Math.random()*100) +'vw';
-    glitch[i].style.top = Math.floor(Math.random()*100) +'vh';
-    glitch[i].style.width = Math.floor(Math.random()*200) +'px';
-    glitch[i].style.height = Math.floor(Math.random()*100) +'px';
-    glitch[i].style.backgroundPosition = Math.floor(Math.random() * 25) + 'px';
 
-}
-},750)
 
-const parallaxElements = document.querySelectorAll('.parallax1');
-
-function handleParallax() {
-    const scrollPosition = window.pageYOffset;
-    parallaxElements.forEach((element) => {
-        const parallaxValue = scrollPosition * -2.7;
-        element.style.transform = `translateY(${parallaxValue}px)`;
-    });
-}
-
-window.addEventListener('scroll', handleParallax);
-handleParallax();
 
 
