@@ -1,0 +1,82 @@
+.project {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #ff5733;
+    animation: blink 3s infinite;
+    background-size: cover;
+    background-image: url('../images/chester-wade-aVq_417KJ7U-unsplash.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+
+h1{
+    margin-left: 3rem;
+    font-size: 6rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .1em;
+    -webkit-box-reflect : below 1px linear-gradient(transparent , #0004);
+    outline: none;
+	animation: animate2 3s linear infinite;
+}
+
+@keyframes animate2{
+	0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%{
+		color: #0e3742;
+		text-shadow: none;
+	}
+	18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%{
+		color: #fff;
+		text-shadow: 0 0 10px #03bcf4,
+		            0 0 20px #03bcf4,
+		            0 0 40px #03bcf4,
+		            0 0 80px #03bcf4,
+		            0 0 160px #03bcf4;
+
+	}
+}
+
+
+
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    gap: 1.25em;
+}
+
+.card1, .card2, .card3 {
+    border: 1px solid #ccc;
+    padding: 1.25em;
+    width: 200px;
+    height: 230px;
+    text-align: center;
+    box-sizing: border-box;
+    justify-self: center; 
+  
+}
+
+
+
+
+
+
+
+
+

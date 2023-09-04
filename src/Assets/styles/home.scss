@@ -1,0 +1,76 @@
+.svg_box h1{
+    margin-left: 10%; 
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    animation: dystopianColorChange 5s infinite; 
+}
+
+
+@keyframes dystopianColorChange {
+    0% {
+      color: #ef7410; /* Start with color 3 */
+    }
+    25% {
+      color: #ee330a; /* Transition to color 2 */
+    }
+    50% {
+      color: #efa40d; /* Transition to color 1 */
+    }
+    75% {
+      color: #f44e12; /* Transition to the initial color */
+    }
+    100% {
+      color: #ed8217; /* Repeat the cycle with color 3 */
+    }
+  }
+  
+
+
+
+
+
+.svg_box {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+}
+
+.svg_box h3{
+    font-family: 'Handjet', cursive;
+    margin-left: 8%;
+    font-size: 3rem;
+    animation: colorChange 5s linear infinite, bounce 2s ease infinite;
+}
+
+
+@keyframes colorChange {
+    0% {
+        color: #f15016; /* Initial color */
+    }
+    25% {
+        color: #00ff99; /* Intermediate color 1 */
+    }
+    50% {
+        color: #ffcc00; /* Intermediate color 2 */
+    }
+    75% {
+        color: #14f210; /* Intermediate color 3 */
+    }
+    100% {
+        color: #bee20b; /* Back to the initial color */
+    }
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Start and end with no vertical translation */
+    }
+    40% {
+        transform: translateY(-20px); /* Bounce upwards at 40% */
+    }
+    60% {
+        transform: translateY(-10px); /* Bounce downwards at 60% */
+    }
+}
+
