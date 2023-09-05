@@ -3,7 +3,9 @@
     width: 100%;
     height: 100vh;
     background-color: #ff5733;
+    
     animation: blink 3s infinite;
+
     background-size: cover;
     background-image: url('../images/chester-wade-aVq_417KJ7U-unsplash.jpg');
     display: flex;
@@ -13,15 +15,17 @@
 
 }
 
+
+
 @keyframes blink {
     0% {
-        opacity: 0.6;
+        opacity: 0.7;
     }
     50% {
         opacity: 1;
     }
     100% {
-        opacity: 0.6;
+        opacity: 0.7;
     }
 }
 
@@ -136,7 +140,50 @@ h1{
 }
 
 
+.card1,.card2,.card3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+.card1 h4, .card2 h4, .card3 h4 {
+    margin-top: 0;
+    position: relative;
+    top: 0;
+}
+
+.card1 p, .card2 p, .card3 p {
+    margin-bottom: 0;
+    position: relative;
+    bottom: 0;
+}
+
+
+
+
+h4{
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+    color: #fbe3e7;
+    text-shadow: 0 0 10px #fb2c5c,
+                0 0 20px #fb2c5c,
+                0 0 40px #fb2c5c,
+                0 0 80px #fb2c5c,
+                0 0 160px #fb2c5c;
+}
+
+
+p{
+    font-family: 'Handjet', cursive;
+    font-size: 3rem;
+    color: #fbe3e7;
+    text-shadow: 0 0 10px #fb2c5c,
+                0 0 20px #fb2c5c,
+                0 0 40px #fb2c5c,
+                0 0 80px #fb2c5c,
+                0 0 160px #fb2c5c;
+}
 
 
 

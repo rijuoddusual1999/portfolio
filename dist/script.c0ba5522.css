@@ -196,14 +196,13 @@ ul {
     background-position: 0 -20px;
   }
   80% {
-    background-position: -60px -20px;
+    background-position: -30px -10px;
   }
   81% {
-    background-position: 0 0;
+    background-position: -10px -5px;
   }
   100% {
     background-position: 0 0;
-    filter: hue-rotate(360deg);
   }
 }
 .landing .fancy_button {
@@ -266,13 +265,13 @@ img {
 
 @keyframes blink {
   0% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 h1 {
@@ -358,6 +357,38 @@ h1 {
   50% {
     transform: translateY(-20px);
   }
+}
+.card1, .card2, .card3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card1 h4, .card2 h4, .card3 h4 {
+  margin-top: 0;
+  position: relative;
+  top: 0;
+}
+
+.card1 p, .card2 p, .card3 p {
+  margin-bottom: 0;
+  position: relative;
+  bottom: 0;
+}
+
+h4 {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  color: #fbe3e7;
+  text-shadow: 0 0 10px #fb2c5c, 0 0 20px #fb2c5c, 0 0 40px #fb2c5c, 0 0 80px #fb2c5c, 0 0 160px #fb2c5c;
+}
+
+p {
+  font-family: "Handjet", cursive;
+  font-size: 3rem;
+  color: #fbe3e7;
+  text-shadow: 0 0 10px #fb2c5c, 0 0 20px #fb2c5c, 0 0 40px #fb2c5c, 0 0 80px #fb2c5c, 0 0 160px #fb2c5c;
 }
 .svg_box h1 {
   margin-left: 10%;
