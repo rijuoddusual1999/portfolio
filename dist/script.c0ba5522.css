@@ -152,7 +152,7 @@ ul {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url("/pexels-jonathan-formento-4337198.69d9b1d2.jpg");
+  background: url("/home_img.c2dda9a8.jpg");
   background-size: cover;
 }
 .landing .svg_box::before {
@@ -162,12 +162,12 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/pexels-jonathan-formento-4337198.69d9b1d2.jpg");
+  background: url("/home_img.c2dda9a8.jpg");
   opacity: 0.5;
   mix-blend-mode: hard-light;
 }
 .landing .svg_box:hover::before {
-  animation: animate 4s linear infinite;
+  animation: animate 9s linear infinite;
 }
 @keyframes animate {
   0% {
@@ -256,7 +256,7 @@ img {
   height: 100vh;
   background-color: #ff5733;
   background-size: cover;
-  background-image: url("/chester-wade-aVq_417KJ7U-unsplash.3bf6d9ff.jpg");
+  background-image: url("/project_img.181a5747.jpg");
   display: flex;
   align-items: center;
   justify-content: space-between;
