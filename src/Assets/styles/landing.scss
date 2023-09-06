@@ -100,11 +100,11 @@
 
 @keyframes animate{
     0%{
-        background-position: 0 0 ;
+        background-position: -5px 0 ;
         filter: hue-rotate(0deg);
     }
     10%{
-        background-position: 5px 0;
+        background-position: 5px -1px;
     }
     20%{
         background-position: -5px 0;
@@ -131,7 +131,7 @@
         background-position: -10px -5px;
     }
     100%{
-        background-position: 0 0;
+        background-position: 5px -1px;
 
     }
 

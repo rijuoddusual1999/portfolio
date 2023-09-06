@@ -171,11 +171,11 @@ ul {
 }
 @keyframes animate {
   0% {
-    background-position: 0 0;
+    background-position: -5px 0;
     filter: hue-rotate(0deg);
   }
   10% {
-    background-position: 5px 0;
+    background-position: 5px -1px;
   }
   20% {
     background-position: -5px 0;
@@ -202,7 +202,7 @@ ul {
     background-position: -10px -5px;
   }
   100% {
-    background-position: 0 0;
+    background-position: 5px -1px;
   }
 }
 .landing .fancy_button {
@@ -255,7 +255,6 @@ img {
   width: 100%;
   height: 100vh;
   background-color: #ff5733;
-  animation: blink 3s infinite;
   background-size: cover;
   background-image: url("/chester-wade-aVq_417KJ7U-unsplash.3bf6d9ff.jpg");
   display: flex;
@@ -380,14 +379,14 @@ h1 {
 h4 {
   font-size: 3rem;
   letter-spacing: 0.5rem;
-  color: #fbe3e7;
+  color: #fcecef;
   text-shadow: 0 0 10px #fb2c5c, 0 0 20px #fb2c5c, 0 0 40px #fb2c5c, 0 0 80px #fb2c5c, 0 0 160px #fb2c5c;
 }
 
 p {
   font-family: "Handjet", cursive;
   font-size: 3rem;
-  color: #fbe3e7;
+  color: #fcecef;
   text-shadow: 0 0 10px #fb2c5c, 0 0 20px #fb2c5c, 0 0 40px #fb2c5c, 0 0 80px #fb2c5c, 0 0 160px #fb2c5c;
 }
 .svg_box h1 {

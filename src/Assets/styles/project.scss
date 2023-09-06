@@ -4,7 +4,7 @@
     height: 100vh;
     background-color: #ff5733;
     
-    animation: blink 3s infinite;
+    //removed blink animation add if needed
 
     background-size: cover;
     background-image: url('../images/chester-wade-aVq_417KJ7U-unsplash.jpg');
@@ -165,7 +165,7 @@ h1{
 h4{
     font-size: 3rem;
     letter-spacing: 0.5rem;
-    color: #fbe3e7;
+    color: #fcecef;
     text-shadow: 0 0 10px #fb2c5c,
                 0 0 20px #fb2c5c,
                 0 0 40px #fb2c5c,
@@ -177,7 +177,7 @@ h4{
 p{
     font-family: 'Handjet', cursive;
     font-size: 3rem;
-    color: #fbe3e7;
+    color: #fcecef;
     text-shadow: 0 0 10px #fb2c5c,
                 0 0 20px #fb2c5c,
                 0 0 40px #fb2c5c,
