@@ -41572,225 +41572,168 @@ var gsapWithCSS = _gsapCore.gsap.registerPlugin(_CSSPlugin.CSSPlugin) || _gsapCo
   TweenMaxWithCSS = gsapWithCSS.core.Tween;
 exports.TweenMax = TweenMaxWithCSS;
 exports.default = exports.gsap = gsapWithCSS;
-},{"./gsap-core.js":"../node_modules/gsap/gsap-core.js","./CSSPlugin.js":"../node_modules/gsap/CSSPlugin.js"}],"Assets/js/hover-effect.js":[function(require,module,exports) {
+},{"./gsap-core.js":"../node_modules/gsap/gsap-core.js","./CSSPlugin.js":"../node_modules/gsap/CSSPlugin.js"}],"../node_modules/hover-effect/dist/hover-effect.es.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = _default;
-var THREE = _interopRequireWildcard(require("three"));
+exports.default = i;
+var e = _interopRequireWildcard(require("three"));
 var _gsap = _interopRequireDefault(require("gsap"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-function _default(opts) {
-  var vertex = "\nvarying vec2 vUv;\nvoid main() {\n  vUv = uv;\n  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n}\n";
-  var fragment = "\nvarying vec2 vUv;\n\nuniform float dispFactor;\nuniform float dpr;\nuniform sampler2D disp;\n\nuniform sampler2D texture1;\nuniform sampler2D texture2;\nuniform float angle1;\nuniform float angle2;\nuniform float intensity1;\nuniform float intensity2;\nuniform vec4 res;\nuniform vec2 parent;\n\nmat2 getRotM(float angle) {\n  float s = sin(angle);\n  float c = cos(angle);\n  return mat2(c, -s, s, c);\n}\n\nvoid main() {\n  vec4 disp = texture2D(disp, vUv);\n  vec2 dispVec = vec2(disp.r, disp.g);\n\n  vec2 uv = 0.5 * gl_FragCoord.xy / (res.xy) ;\n  vec2 myUV = (uv - vec2(0.5))*res.zw + vec2(0.5);\n\n\n  vec2 distortedPosition1 = myUV + getRotM(angle1) * dispVec * intensity1 * dispFactor;\n  vec2 distortedPosition2 = myUV + getRotM(angle2) * dispVec * intensity2 * (1.0 - dispFactor);\n  vec4 _texture1 = texture2D(texture1, distortedPosition1);\n  vec4 _texture2 = texture2D(texture2, distortedPosition2);\n  gl_FragColor = mix(_texture1, _texture2, dispFactor);\n}\n";
-
-  // please respect authorship and do not remove
+function i(i) {
+  function n() {
+    for (var e = 0; e < arguments.length; e++) if (void 0 !== arguments[e]) return arguments[e];
+  }
   console.log("%c Hover effect by Robin Delaporte: https://github.com/robin-dela/hover-effect ", "color: #bada55; font-size: 0.8rem");
-  function firstDefined() {
-    for (var i = 0; i < arguments.length; i++) {
-      if (arguments[i] !== undefined) return arguments[i];
-    }
-  }
-  var parent = opts.parent;
-  var dispImage = opts.displacementImage;
-  var image1 = opts.image1;
-  var image2 = opts.image2;
-  var imagesRatio = firstDefined(opts.imagesRatio, 1.0);
-  var intensity1 = firstDefined(opts.intensity1, opts.intensity, 1);
-  var intensity2 = firstDefined(opts.intensity2, opts.intensity, 1);
-  var commonAngle = firstDefined(opts.angle, Math.PI / 4); // 45 degrees by default, so grayscale images work correctly
-  var angle1 = firstDefined(opts.angle1, commonAngle);
-  var angle2 = firstDefined(opts.angle2, -commonAngle * 3);
-  var speedIn = firstDefined(opts.speedIn, opts.speed, 1.6);
-  var speedOut = firstDefined(opts.speedOut, opts.speed, 1.2);
-  var userHover = firstDefined(opts.hover, true);
-  var easing = firstDefined(opts.easing, "expo.out");
-  var video = firstDefined(opts.video, false);
-  if (!parent) {
-    console.warn("Parent missing");
-    return;
-  }
-  if (!(image1 && image2 && dispImage)) {
-    console.warn("One or more images are missing");
-    return;
-  }
-  var scene = new THREE.Scene();
-  var camera = new THREE.OrthographicCamera(parent.offsetWidth / -2, parent.offsetWidth / 2, parent.offsetHeight / 2, parent.offsetHeight / -2, 1, 1000);
-  camera.position.z = 1;
-  var renderer = new THREE.WebGLRenderer({
-    antialias: false,
-    alpha: true
-  });
-  renderer.setPixelRatio(2.0);
-  renderer.setClearColor(0xffffff, 0.0);
-  renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-  parent.appendChild(renderer.domElement);
-  var render = function render() {
-    // This will be called by the TextureLoader as well as Gsap.
-    renderer.render(scene, camera);
-  };
-  var loader = new THREE.TextureLoader();
-  loader.crossOrigin = "";
-  var disp = loader.load(dispImage, render);
-  disp.magFilter = disp.minFilter = THREE.LinearFilter;
-  if (video) {
-    var animate = function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    };
-    animate();
-    var video = document.createElement("video");
-    video.autoplay = true;
-    video.loop = true;
-    video.muted = true;
-    video.src = image1;
-    video.load();
-    var video2 = document.createElement("video");
-    video2.autoplay = true;
-    video2.loop = true;
-    video2.muted = true;
-    video2.src = image2;
-    video2.load();
-    var texture1 = new THREE.VideoTexture(video);
-    var texture2 = new THREE.VideoTexture(video2);
-    texture1.magFilter = texture2.magFilter = THREE.LinearFilter;
-    texture1.minFilter = texture2.minFilter = THREE.LinearFilter;
-    video2.addEventListener("loadeddata", function () {
-      video2.play();
-      texture2 = new THREE.VideoTexture(video2);
-      texture2.magFilter = THREE.LinearFilter;
-      texture2.minFilter = THREE.LinearFilter;
-      mat.uniforms.texture2.value = texture2;
-    }, false);
-    video.addEventListener("loadeddata", function () {
-      video.play();
-      texture1 = new THREE.VideoTexture(video);
-      texture1.magFilter = THREE.LinearFilter;
-      texture1.minFilter = THREE.LinearFilter;
-      mat.uniforms.texture1.value = texture1;
-    }, false);
-  } else {
-    var texture1 = loader.load(image1, render);
-    var texture2 = loader.load(image2, render);
-    texture1.magFilter = texture2.magFilter = THREE.LinearFilter;
-    texture1.minFilter = texture2.minFilter = THREE.LinearFilter;
-  }
-  var a1, a2;
-  var imageAspect = imagesRatio;
-  if (parent.offsetHeight / parent.offsetWidth < imageAspect) {
-    a1 = 1;
-    a2 = parent.offsetHeight / parent.offsetWidth / imageAspect;
-  } else {
-    a1 = parent.offsetWidth / parent.offsetHeight * imageAspect;
-    a2 = 1;
-  }
-  var mat = new THREE.ShaderMaterial({
-    uniforms: {
-      intensity1: {
-        type: "f",
-        value: intensity1
-      },
-      intensity2: {
-        type: "f",
-        value: intensity2
-      },
-      dispFactor: {
-        type: "f",
-        value: 0.0
-      },
-      angle1: {
-        type: "f",
-        value: angle1
-      },
-      angle2: {
-        type: "f",
-        value: angle2
-      },
-      texture1: {
-        type: "t",
-        value: texture1
-      },
-      texture2: {
-        type: "t",
-        value: texture2
-      },
-      disp: {
-        type: "t",
-        value: disp
-      },
-      res: {
-        type: "vec4",
-        value: new THREE.Vector4(parent.offsetWidth, parent.offsetHeight, a1, a2)
-      },
-      dpr: {
-        type: "f",
-        value: window.devicePixelRatio
-      }
-    },
-    vertexShader: vertex,
-    fragmentShader: fragment,
-    transparent: true,
-    opacity: 1.0
-  });
-  var geometry = new THREE.PlaneGeometry(parent.offsetWidth, parent.offsetHeight, 1);
-  var object = new THREE.Mesh(geometry, mat);
-  scene.add(object);
-  function transitionIn() {
-    _gsap.default.to(mat.uniforms.dispFactor, {
-      duration: speedIn,
+  var r = i.parent,
+    o = i.displacementImage,
+    a = i.image1,
+    s = i.image2,
+    l = n(i.imagesRatio, 1),
+    d = n(i.intensity1, i.intensity, 1),
+    f = n(i.intensity2, i.intensity, 1),
+    u = n(i.angle, Math.PI / 4),
+    m = n(i.angle1, u),
+    v = n(i.angle2, 3 * -u),
+    c = n(i.speedIn, i.speed, 1.6),
+    p = n(i.speedOut, i.speed, 1.2),
+    g = n(i.hover, !0),
+    h = n(i.easing, "expo.out"),
+    y = n(i.video, !1);
+  if (r) {
+    if (a && s && o) {
+      var F = new e.Scene(),
+        x = new e.OrthographicCamera(r.offsetWidth / -2, r.offsetWidth / 2, r.offsetHeight / 2, r.offsetHeight / -2, 1, 1e3);
+      x.position.z = 1;
+      var w = new e.WebGLRenderer({
+        antialias: !1,
+        alpha: !0
+      });
+      w.setPixelRatio(2), w.setClearColor(16777215, 0), w.setSize(r.offsetWidth, r.offsetHeight), r.appendChild(w.domElement);
+      var L = function () {
+          w.render(F, x);
+        },
+        H = new e.TextureLoader();
+      H.crossOrigin = "";
+      var W,
+        V,
+        E = H.load(o, L);
+      if (E.magFilter = E.minFilter = e.LinearFilter, y) {
+        !function e() {
+          requestAnimationFrame(e), w.render(F, x);
+        }(), (y = document.createElement("video")).autoplay = !0, y.loop = !0, y.muted = !0, y.src = a, y.load();
+        var P = document.createElement("video");
+        P.autoplay = !0, P.loop = !0, P.muted = !0, P.src = s, P.load();
+        var U = new e.VideoTexture(y),
+          C = new e.VideoTexture(P);
+        U.magFilter = C.magFilter = e.LinearFilter, U.minFilter = C.minFilter = e.LinearFilter, P.addEventListener("loadeddata", function () {
+          P.play(), (C = new e.VideoTexture(P)).magFilter = e.LinearFilter, C.minFilter = e.LinearFilter, R.uniforms.texture2.value = C;
+        }, !1), y.addEventListener("loadeddata", function () {
+          y.play(), (U = new e.VideoTexture(y)).magFilter = e.LinearFilter, U.minFilter = e.LinearFilter, R.uniforms.texture1.value = U;
+        }, !1);
+      } else U = H.load(a, L), C = H.load(s, L), U.magFilter = C.magFilter = e.LinearFilter, U.minFilter = C.minFilter = e.LinearFilter;
+      var M = l;
+      r.offsetHeight / r.offsetWidth < M ? (W = 1, V = r.offsetHeight / r.offsetWidth / M) : (W = r.offsetWidth / r.offsetHeight * M, V = 1);
+      var R = new e.ShaderMaterial({
+          uniforms: {
+            intensity1: {
+              type: "f",
+              value: d
+            },
+            intensity2: {
+              type: "f",
+              value: f
+            },
+            dispFactor: {
+              type: "f",
+              value: 0
+            },
+            angle1: {
+              type: "f",
+              value: m
+            },
+            angle2: {
+              type: "f",
+              value: v
+            },
+            texture1: {
+              type: "t",
+              value: U
+            },
+            texture2: {
+              type: "t",
+              value: C
+            },
+            disp: {
+              type: "t",
+              value: E
+            },
+            res: {
+              type: "vec4",
+              value: new e.Vector4(r.offsetWidth, r.offsetHeight, W, V)
+            },
+            dpr: {
+              type: "f",
+              value: window.devicePixelRatio
+            }
+          },
+          vertexShader: "\nvarying vec2 vUv;\nvoid main() {\n  vUv = uv;\n  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n}\n",
+          fragmentShader: "\nvarying vec2 vUv;\n\nuniform float dispFactor;\nuniform float dpr;\nuniform sampler2D disp;\n\nuniform sampler2D texture1;\nuniform sampler2D texture2;\nuniform float angle1;\nuniform float angle2;\nuniform float intensity1;\nuniform float intensity2;\nuniform vec4 res;\nuniform vec2 parent;\n\nmat2 getRotM(float angle) {\n  float s = sin(angle);\n  float c = cos(angle);\n  return mat2(c, -s, s, c);\n}\n\nvoid main() {\n  vec4 disp = texture2D(disp, vUv);\n  vec2 dispVec = vec2(disp.r, disp.g);\n\n  vec2 uv = 0.5 * gl_FragCoord.xy / (res.xy) ;\n  vec2 myUV = (uv - vec2(0.5))*res.zw + vec2(0.5);\n\n\n  vec2 distortedPosition1 = myUV + getRotM(angle1) * dispVec * intensity1 * dispFactor;\n  vec2 distortedPosition2 = myUV + getRotM(angle2) * dispVec * intensity2 * (1.0 - dispFactor);\n  vec4 _texture1 = texture2D(texture1, distortedPosition1);\n  vec4 _texture2 = texture2D(texture2, distortedPosition2);\n  gl_FragColor = mix(_texture1, _texture2, dispFactor);\n}\n",
+          transparent: !0,
+          opacity: 1
+        }),
+        D = new e.PlaneGeometry(r.offsetWidth, r.offsetHeight, 1),
+        _ = new e.Mesh(D, R);
+      F.add(_), g && (r.addEventListener("mouseenter", b), r.addEventListener("touchstart", b), r.addEventListener("mouseleave", z), r.addEventListener("touchend", z)), window.addEventListener("resize", function (t) {
+        r.offsetHeight / r.offsetWidth < M ? (W = 1, V = r.offsetHeight / r.offsetWidth / M) : (W = r.offsetWidth / r.offsetHeight * M, V = 1), _.material.uniforms.res.value = new e.Vector4(r.offsetWidth, r.offsetHeight, W, V), w.setSize(r.offsetWidth, r.offsetHeight), L();
+      }), this.next = b, this.previous = z;
+    } else console.warn("One or more images are missing");
+  } else console.warn("Parent missing");
+  function b() {
+    _gsap.default.to(R.uniforms.dispFactor, {
+      duration: c,
       value: 1,
-      ease: easing,
-      onUpdate: render,
-      onComplete: render
+      ease: h,
+      onUpdate: L,
+      onComplete: L
     });
   }
-  function transitionOut() {
-    _gsap.default.to(mat.uniforms.dispFactor, {
-      duration: speedOut,
+  function z() {
+    _gsap.default.to(R.uniforms.dispFactor, {
+      duration: p,
       value: 0,
-      ease: easing,
-      onUpdate: render,
-      onComplete: render
+      ease: h,
+      onUpdate: L,
+      onComplete: L
     });
   }
-  if (userHover) {
-    parent.addEventListener("mouseenter", transitionIn);
-    parent.addEventListener("touchstart", transitionIn);
-    parent.addEventListener("mouseleave", transitionOut);
-    parent.addEventListener("touchend", transitionOut);
-  }
-  window.addEventListener("resize", function (e) {
-    if (parent.offsetHeight / parent.offsetWidth < imageAspect) {
-      a1 = 1;
-      a2 = parent.offsetHeight / parent.offsetWidth / imageAspect;
-    } else {
-      a1 = parent.offsetWidth / parent.offsetHeight * imageAspect;
-      a2 = 1;
-    }
-    object.material.uniforms.res.value = new THREE.Vector4(parent.offsetWidth, parent.offsetHeight, a1, a2);
-    renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-    render();
-  });
-  this.next = transitionIn;
-  this.previous = transitionOut;
 }
-},{"three":"../node_modules/three/build/three.module.js","gsap":"../node_modules/gsap/index.js"}],"Assets/js/OSC.js":[function(require,module,exports) {
+},{"three":"../node_modules/three/build/three.module.js","gsap":"../node_modules/gsap/index.js"}],"Assets/images/osc1.jpg":[function(require,module,exports) {
+module.exports = "/osc1.496f9aa4.jpg";
+},{}],"Assets/images/osc2.jpg":[function(require,module,exports) {
+module.exports = "/osc2.7d71cba2.jpg";
+},{}],"Assets/images/heightMap.png":[function(require,module,exports) {
+module.exports = "/heightMap.f6910193.png";
+},{}],"Assets/js/OSC.js":[function(require,module,exports) {
 "use strict";
 
-var _hoverEffect = _interopRequireDefault(require("./hover-effect"));
+var _hoverEffect = _interopRequireDefault(require("hover-effect"));
+var _osc = _interopRequireDefault(require("../images/osc1.jpg"));
+var _osc2 = _interopRequireDefault(require("../images/osc2.jpg"));
+var _heightMap = _interopRequireDefault(require("../images/heightMap.png"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var myAnimation = new _hoverEffect.default({
-  parent: document.querySelector('#OSC'),
-  intensity: 0.3,
-  image1: '../images/osc1',
-  image2: '../images/osc2',
-  displacementImage: '../images/osc2'
+new _hoverEffect.default({
+  parent: document.querySelector('.distortion'),
+  intensity: 0.2,
+  image1: _osc.default,
+  image2: _osc2.default,
+  displacementImage: _heightMap.default
 });
-},{"./hover-effect":"Assets/js/hover-effect.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"hover-effect":"../node_modules/hover-effect/dist/hover-effect.es.js","../images/osc1.jpg":"Assets/images/osc1.jpg","../images/osc2.jpg":"Assets/images/osc2.jpg","../images/heightMap.png":"Assets/images/heightMap.png"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -41815,7 +41758,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64722" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64486" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -1,0 +1,59 @@
+.OSC{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgb(249, 229, 233);
+    opacity: 1;
+    z-index: 2;
+
+}
+
+
+
+.right,.left{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+
+
+
+
+
+
+.distortion{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+}
+
+.OSC h4{
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+    color: #fcecef;
+    text-shadow: 0 0 10px #fb2c2c,
+                0 0 20px #fb2c2c,
+                0 0 40px #fb2c2c,
+                0 0 80px #fb2c2c,
+                0 0 160px #fb2c2c
+}
+
+.OSC p{
+    font-family: 'Handjet', cursive;
+    font-size: 3rem;
+    color: #fcecef;
+    font-weight: 900;
+    text-shadow: 0 0 10px #fb2c2c,
+                0 0 20px #fb2c2c,
+                0 0 40px #fb2c2c,
+                0 0 80px #fb2c2c,
+                0 0 160px #fb2c2c
+}
+
+
+.parallax2{
+    position:relative;
+}

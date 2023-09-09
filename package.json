@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "gsap": "^3.12.2",
-    "hover-effect": "^1.2.1"
+    "hover-effect": "^1.2.1",
+    "jquery": "^3.7.1",
+    "tween.js": "^16.6.0"
   }
 }
