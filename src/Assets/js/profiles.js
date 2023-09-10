@@ -61,7 +61,7 @@ function animate(){
         
         
 
-        geometry.attributes.position.setZ(i, -y* time*1.5);
+        geometry.attributes.position.setZ(i, -y* time*0.75);
         geometry.computeVertexNormals();
         geometry.attributes.position.needsUpdate = true;
 
