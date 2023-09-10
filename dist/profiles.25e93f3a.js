@@ -36151,32 +36151,54 @@ if (typeof window !== 'undefined') {
     window.__THREE__ = REVISION;
   }
 }
+},{}],"Assets/images/exp1.jpg":[function(require,module,exports) {
+module.exports = "/exp1.faab9878.jpg";
 },{}],"Assets/js/profiles.js":[function(require,module,exports) {
 "use strict";
 
 var THREE = _interopRequireWildcard(require("three"));
+var _exp = _interopRequireDefault(require("../images/exp1.jpg"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var container = document.querySelector(".normal2");
+var loader = new THREE.TextureLoader();
+
+//window.addEventListener('resize');
+
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(21, window.innerHeight / window.outerHeight, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(70, window.innerHeight / window.outerHeight, 0.1, 1000);
 var renderer = new THREE.WebGL1Renderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-var geometry = new THREE.PlaneGeometry(1, 1);
+container.appendChild(renderer.domElement);
+var geometry = new THREE.PlaneGeometry(2, 5, 15, 9);
 var material = new THREE.MeshBasicMaterial({
-  color: 0xff0000
+  //color: 0xff0000,
+  map: loader.load(_exp.default)
+  //wireframe: true,
 });
+
 var mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 camera.position.z = 5;
+var count = geometry.attributes.position.count;
+var clock = new THREE.Clock();
 function animate() {
-  requestAnimationFrame(animate);
+  var time = clock.getElapsedTime();
+  for (var i = 0; i < count; i++) {
+    var x = geometry.attributes.position.getX(i);
+    var y = geometry.attributes.position.getY(i);
+    geometry.attributes.position.setZ(i, -y * time * 2);
+    geometry.computeVertexNormals();
+    geometry.attributes.position.needsUpdate = true;
+  }
   //mesh.rotation.x += 0.1;
   //mesh.rotation.y += 0.1;
+  requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
 animate();
-},{"three":"../node_modules/three/build/three.module.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"three":"../node_modules/three/build/three.module.js","../images/exp1.jpg":"Assets/images/exp1.jpg"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -36201,7 +36223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64486" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50924" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
