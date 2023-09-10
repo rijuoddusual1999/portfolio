@@ -36188,7 +36188,7 @@ function animate() {
   for (var i = 0; i < count; i++) {
     var x = geometry.attributes.position.getX(i);
     var y = geometry.attributes.position.getY(i);
-    geometry.attributes.position.setZ(i, -y * time * 2);
+    geometry.attributes.position.setZ(i, -y * time * 1);
     geometry.computeVertexNormals();
     geometry.attributes.position.needsUpdate = true;
   }
@@ -36223,7 +36223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50924" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52707" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
