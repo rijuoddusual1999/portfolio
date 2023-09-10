@@ -40,7 +40,7 @@ const material = new THREE.MeshBasicMaterial({
 const mesh = new THREE.Mesh(geometry,material); 
 
 scene.add(mesh);
-camera.position.z = 5;
+camera.position.z = 10;
 
 
 
@@ -58,9 +58,14 @@ function animate(){
         const x = geometry.attributes.position.getX(i);
         const y = geometry.attributes.position.getY(i);
 
-        geometry.attributes.position.setZ(i, -y* time*1);
+        
+        
+
+        geometry.attributes.position.setZ(i, -y* time*.5);
         geometry.computeVertexNormals();
         geometry.attributes.position.needsUpdate = true;
+
+
 
 
     }
